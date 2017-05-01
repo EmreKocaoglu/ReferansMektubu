@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>login</title>
+</h:head>
+<h:body>
+	<div style="border: 0px solid #000; height: 250px; width: 500px;">
+		<h:form id="loginForm">
+
+
+			<p:growl id="msg" showDetail="true" life="3000" />
+			<p:panel header="Login" style="width: 560px;">
+
+				<h:panelGrid id="loginPanel" columns="2">
+
+					<h:outputText value="Ad :" />
+
+					<p:inputText id="username" value="#{kullanici.ad}"></p:inputText>
+
+					<p:spacer></p:spacer>
+
+					<p:message for="username"></p:message>
+					<h:outputText value="Soyad :" />
+
+					<p:inputText id="usersurname" value="#{kullanici.soyad}"></p:inputText>
+
+
+					<p:spacer></p:spacer>
+					<p:spacer></p:spacer>
+					<h:outputText value="Şifre :"></h:outputText>
+					<p:password value="#{kullanici.password}"></p:password>
+
+				
+
+					<p:spacer></p:spacer>
+					<h:outputLink value="http://c12.incisozluk.com.tr/res/incisozluk//11507/8/1517388_o077e.jpg">Şifremi Unuttum</h:outputLink>
+					
+					<center>
+						<p:commandButton actionListener="#{kullanici.login}" value="Login">
+						</p:commandButton>
+					</center>
+					
+
+			
+
+				</h:panelGrid>
+
+			</p:panel>
+
+		</h:form>
+	</div>
+	<div
+		style="border: 0px solid #000; height: 250px; width: 300px; margin-left: 900px; margin-top: -250px;">
+		<h:form id="registerFrm">
+
+
+			<p:growl id="msg" showDetail="true" life="3000" />
+			<p:panel header="Yeni Kayıt" style="width: 560px;">
+
+				<h:panelGrid id="Register" columns="2">
+
+					<h:outputText value="Ad :" />
+
+					<p:inputText id="username" value="#{ogrenci.ad}"></p:inputText>
+
+					<p:spacer></p:spacer>
+
+					<p:message for="username"></p:message>
+					<h:outputText value="Soyad :" />
+
+					<p:inputText id="usersurname" value="#{ogrenci.soyad}"></p:inputText>
+
+					<p:spacer></p:spacer>
+
+					<p:message for="username"></p:message>
+
+					<p:outputLabel for="german" value="Doğum Tarihi :" />
+					<p:calendar id="german" value="#{ogrenci.dogumTarihi}" locale="de"
+						navigator="true" pattern="dd.mm.yyyy" />
+
+					<p:spacer></p:spacer>
+
+					<p:spacer></p:spacer>
+					<h:outputText value="Şifre :" />
+
+					<p:inputText id="pwd" value="#{ogrenci.password}"></p:inputText>
+
+					<p:spacer></p:spacer>
+					<p:spacer></p:spacer>
+					<h:outputText value="Şifre (Tekrar) :" />
+
+					<p:inputText id="pwd2" value="#{ogrenci.password}"></p:inputText>
+
+					<p:spacer></p:spacer>
+					<p:spacer></p:spacer>
+					<h:outputText value="E-posta :" />
+
+					<p:inputText id="usermail" value="#{ogrenci.email}"></p:inputText>
+					<p:spacer></p:spacer>
+					<p:spacer></p:spacer>
+
+					<p:outputLabel for="car" value="Bölüm : " />
+					<p:selectOneMenu id="car" value="#{ogrenci.program}">
+						<f:selectItem itemLabel="Bölüm Seçiniz" itemValue="" />
+						<f:selectItems value="#{ogrenci.program}" />
+					</p:selectOneMenu>
+
+					<center>
+						<p:commandButton actionListener="#{OgrenciService.save(ogrenci)}" value="Kaydol">
+						</p:commandButton>
+					</center>
+
+				</h:panelGrid>
+
+			</p:panel>
+
+		</h:form>
+
+	</div>
+
+</h:body>
+
+</html>

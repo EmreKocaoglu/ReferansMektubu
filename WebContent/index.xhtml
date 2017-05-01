@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Başkent Referans</title>
+    </h:head>
+     <h:body>
+
+        <h:form>
+    <p:dataTable var="ogrenci" value="#{ogrenciView.ogrenci}" rows="10"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+        <p:column headerText="Ad">
+            <h:outputText value="#{ogrenci.ad}" />
+        </p:column>
+ 
+        <p:column headerText="Soyad">
+            <h:outputText value="#{ogrenci.soyad}" />
+        </p:column>
+ 
+        <p:column headerText="Bölüm">
+            <h:outputText value="#{ogrenci.program}" />
+        </p:column>
+ 
+        <p:column headerText="Derece">
+            <h:outputText value="#{ogrenci.derece}" />
+        </p:column>
+        
+    </p:dataTable>
+     
+</h:form>
+    </h:body>
+    </html>

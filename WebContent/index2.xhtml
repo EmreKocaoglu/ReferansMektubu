@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Başkent Referans</title>
+    </h:head>
+     <h:body>
+<h:form id="form">
+   <p:growl id="msgs" showDetail="true"/>
+ 
+   <p:dataTable id="ogrenci1" var="ogrenci" value="#{ogrenciView.ogrenci}" editable="true" style="margin-bottom:20px">
+       <f:facet name="header">
+           Satır Edit
+       </f:facet>
+ 
+       <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
+       <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
+ 
+       <p:column headerText="Ad">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{ogrenci.ad}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{ogrenci.ad}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Soyad ">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{ogrenci.soyad}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{ogrenci.soyad}" style="width:100%" label="Year"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Program">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{ogrenci.program}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{ogrenci.program}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Ders">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{ogrenci.ders}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{ogrenci.ders}" style="width:100%">
+                       <f:selectItems value="#{ogrenciView.ogrenci}" var="ders" itemLabel="#{ders}" itemValue="#{ders}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column style="width:32px">
+           <p:rowEditor />
+       </p:column>
+   </p:dataTable>
+ 
+ 
+</h:form>
+</h:body>
+</html>

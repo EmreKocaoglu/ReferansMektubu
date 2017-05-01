@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+<managed-bean>
+<managed-bean-name>ogrenci</managed-bean-name>
+<managed-bean-class>com.baskent.entity.Ogrenci</managed-bean-class>
+<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<managed-bean-name>ogrenciView</managed-bean-name>
+<managed-bean-class>com.baskent.view.OgrenciView</managed-bean-class>
+<managed-bean-scope>view</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<managed-bean-name>kullanici</managed-bean-name>
+<managed-bean-class>com.baskent.entity.Kullanici</managed-bean-class>
+<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+
+</faces-config>
